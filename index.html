@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQST — Портфолио сайтов</title>
+    <title>SQST — все услуги</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
             align-items: center;
             padding: 30px 20px;
             position: relative;
-            background: #ac3c64; /* запасной цвет, если фото не загрузится */
+            background: #4c4444;
         }
 
         /* ===== ФОНОВОЕ ФОТО ===== */
@@ -34,92 +34,116 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            filter: brightness(0.5) blur(2px);
+            filter: brightness(0.4) blur(2px);
             z-index: 0;
         }
 
-        /* ===== КАРТОЧКА (поверх фона) ===== */
+        /* ===== ОСНОВНАЯ КАРТОЧКА ===== */
         .card {
-            max-width: 700px;
+            max-width: 900px;
             width: 100%;
-            background: rgba(220, 156, 179, 0.75);
-            backdrop-filter: blur(12px);
+            background: rgba(108, 100, 108, 0.75);
+            backdrop-filter: blur(14px);
             border-radius: 40px;
-            padding: 40px 30px 45px;
-            border: 3px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            padding: 35px 25px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
             text-align: center;
             position: relative;
             z-index: 1;
-            transition: 0.3s;
-        }
-        .card:hover {
-            box-shadow: 0 20px 60px rgba(255,255,255,0.1);
         }
 
+        /* ===== ЛОГОТИП ===== */
         .logo {
-            font-size: 3.2rem;
+            font-size: 3rem;
             font-weight: bold;
             color: #fff;
-            text-shadow: 0 0 30px rgba(0,0,0,0.3);
+            text-shadow: 0 0 30px rgba(0,0,0,0.4);
             letter-spacing: 8px;
         }
         .logo small {
             display: block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 3px;
-            opacity: 0.9;
+            opacity: 0.7;
             margin-top: 4px;
             font-weight: normal;
-            color: #fff;
+            color: #e0d6d6;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: #f5e6ed;
-            margin: 15px 0 20px;
+            font-size: 1.1rem;
+            color: #d4c8c8;
+            margin: 12px 0 20px;
             font-style: italic;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .examples {
+        /* ===== СЕТКА 4×4 ===== */
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-            margin: 20px 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin: 18px 0 22px;
         }
-        .example-item {
-            background: rgba(255,255,255,0.12);
+
+        .service-item {
+            background: rgba(91, 91, 90, 0.5);
             backdrop-filter: blur(4px);
-            border-radius: 16px;
-            padding: 18px 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-            font-size: 0.9rem;
+            border-radius: 18px;
+            padding: 20px 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            color: #f0ecec;
+            font-size: 0.85rem;
             font-weight: bold;
-            transition: 0.3s;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            text-align: center;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .example-item:hover {
-            background: rgba(255,255,255,0.25);
-            transform: scale(1.03);
+        .service-item:hover {
+            background: rgba(108, 108, 107, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.08);
         }
-        .example-item .icon {
+
+        .service-item .icon {
             font-size: 2rem;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+        }
+        .service-item .title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #f5f0f0;
+            margin-bottom: 3px;
+        }
+        .service-item .desc {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            font-weight: normal;
+            color: #d4c8c8;
+            line-height: 1.3;
+        }
+        .service-item .price-tag {
+            font-size: 0.7rem;
+            color: #c4b4b4;
+            margin-top: 4px;
+            background: rgba(0,0,0,0.15);
+            padding: 2px 10px;
+            border-radius: 20px;
+            display: inline-block;
         }
 
-        .price-line {
-            color: #f5e6ed;
-            font-size: 0.95rem;
-            margin: 10px 0 5px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
+        /* ===== КНОПКА ===== */
         .btn {
             display: inline-block;
-            background: rgba(172, 84, 113, 0.85);
+            background: rgba(107, 108, 108, 0.8);
             backdrop-filter: blur(4px);
             color: #fff;
             padding: 14px 45px;
@@ -127,41 +151,61 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            margin-top: 15px;
+            margin-top: 10px;
             transition: 0.3s;
             box-shadow: 0 6px 25px rgba(0,0,0,0.2);
             font-family: 'Georgia', serif;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.05);
         }
         .btn:hover {
-            background: #5f182d;
+            background: #4c4c4c;
             transform: scale(1.03);
         }
 
         .footer-text {
-            color: #f5e6ed;
-            font-size: 0.9rem;
-            margin-top: 20px;
-            opacity: 0.85;
+            color: #d4c8c8;
+            font-size: 0.85rem;
+            margin-top: 18px;
+            opacity: 0.7;
             text-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .highlight {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
             padding: 2px 12px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            backdrop-filter: blur(4px);
+            font-size: 0.8rem;
         }
 
-        @media (max-width: 500px) {
-            .examples {
-                grid-template-columns: 1fr 1fr;
+        /* ===== АДАПТАЦИЯ ===== */
+        @media (max-width: 750px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             .logo {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
             .card {
-                padding: 25px 18px 30px;
+                padding: 25px 16px 30px;
+            }
+            .service-item {
+                min-height: 100px;
+                padding: 16px 6px 12px;
+            }
+        }
+        @media (max-width: 450px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .service-item .icon {
+                font-size: 1.6rem;
+            }
+            .service-item .title {
+                font-size: 0.75rem;
+            }
+            .service-item .desc {
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -169,55 +213,161 @@
 <body>
 
     <div class="card">
+
+        <!-- ===== ЗАГОЛОВОК ===== -->
         <div class="logo">
             SQST
             <small>создаю сайты о любви и не только</small>
         </div>
-
         <div class="subtitle">
             ✦ смотри, вдохновляйся, заказывай ✦
         </div>
 
-        <div class="examples">
-            <div class="example-item">
+        <!-- ===== СЕТКА УСЛУГ 4×4 ===== -->
+        <div class="services-grid">
+
+            <!-- 1 -->
+            <div class="service-item">
                 <span class="icon">💕</span>
-                Сайт-свидание
+                <span class="title">Сайт-свидание</span>
+                <span class="desc">с таймером и письмом</span>
+                <span class="price-tag">от 150 ₽</span>
             </div>
-            <div class="example-item">
+
+            <!-- 2 -->
+            <div class="service-item">
                 <span class="icon">📸</span>
-                Портфолио
+                <span class="title">Сайт-портфолио</span>
+                <span class="desc">для блога или бизнеса</span>
+                <span class="price-tag">от 200 ₽</span>
             </div>
-            <div class="example-item">
+
+            <!-- 3 -->
+            <div class="service-item">
                 <span class="icon">🎵</span>
-                Сайт с плейлистом
+                <span class="title">Сайт с плейлистом</span>
+                <span class="desc">музыка и атмосфера</span>
+                <span class="price-tag">от 180 ₽</span>
             </div>
-            <div class="example-item">
+
+            <!-- 4 -->
+            <div class="service-item">
                 <span class="icon">📍</span>
-                Сайт с картой
+                <span class="title">Сайт с картой</span>
+                <span class="desc">ваши места на карте</span>
+                <span class="price-tag">от 220 ₽</span>
             </div>
-            <div class="example-item">
+
+            <!-- 5 -->
+            <div class="service-item">
                 <span class="icon">💌</span>
-                Письмо в будущее
+                <span class="title">Письмо в будущее</span>
+                <span class="desc">откроется в нужный день</span>
+                <span class="price-tag">от 300 ₽</span>
             </div>
-            <div class="example-item">
+
+            <!-- 6 -->
+            <div class="service-item">
                 <span class="icon">🎡</span>
-                Парк аттракционов
+                <span class="title">Парк аттракционов</span>
+                <span class="desc">романтичная страница</span>
+                <span class="price-tag">от 250 ₽</span>
             </div>
+
+            <!-- 7 -->
+            <div class="service-item">
+                <span class="icon">🎨</span>
+                <span class="title">Логотипы</span>
+                <span class="desc">для блога или бизнеса</span>
+                <span class="price-tag">от 200 ₽</span>
+            </div>
+
+            <!-- 8 -->
+            <div class="service-item">
+                <span class="icon">🖼️</span>
+                <span class="title">Обложки для соцсетей</span>
+                <span class="desc">VK, Telegram, Instagram</span>
+                <span class="price-tag">от 150 ₽</span>
+            </div>
+
+            <!-- 9 -->
+            <div class="service-item">
+                <span class="icon">📊</span>
+                <span class="title">Презентации</span>
+                <span class="desc">стильные и продающие</span>
+                <span class="price-tag">от 300 ₽</span>
+            </div>
+
+            <!-- 10 -->
+            <div class="service-item">
+                <span class="icon">🎯</span>
+                <span class="title">Флаеры / афиши</span>
+                <span class="desc">для мероприятий</span>
+                <span class="price-tag">от 150 ₽</span>
+            </div>
+
+            <!-- 11 -->
+            <div class="service-item">
+                <span class="icon">💳</span>
+                <span class="title">Визитки</span>
+                <span class="desc">цифровые или для печати</span>
+                <span class="price-tag">от 100 ₽</span>
+            </div>
+
+            <!-- 12 -->
+            <div class="service-item">
+                <span class="icon">✍️</span>
+                <span class="title">Тексты для сайтов</span>
+                <span class="desc">продающие и живые</span>
+                <span class="price-tag">от 300 ₽</span>
+            </div>
+
+            <!-- 13 -->
+            <div class="service-item">
+                <span class="icon">🧠</span>
+                <span class="title">Консультации</span>
+                <span class="desc">помогу с идеей</span>
+                <span class="price-tag">от 500 ₽</span>
+            </div>
+
+            <!-- 14 -->
+            <div class="service-item">
+                <span class="icon">📚</span>
+                <span class="title">Гайды / инструкции</span>
+                <span class="desc">PDF с уроками</span>
+                <span class="price-tag">от 500 ₽</span>
+            </div>
+
+            <!-- 15 -->
+            <div class="service-item">
+                <span class="icon">🎁</span>
+                <span class="title">Готовые шаблоны</span>
+                <span class="desc">сайтов и дизайнов</span>
+                <span class="price-tag">от 100 ₽</span>
+            </div>
+
+            <!-- 16 -->
+            <div class="service-item" style="border: 1px solid rgba(255,255,255,0.08);">
+                <span class="icon">💡</span>
+                <span class="title">Своя идея</span>
+                <span class="desc">придумаем вместе</span>
+                <span class="price-tag">🔥 договоримся</span>
+            </div>
+
         </div>
 
-        <div class="price-line">
-            🔥 от 150 ₽ · за 1 день · с душой
-        </div>
-
+        <!-- ===== КНОПКА ===== -->
         <a href="https://t.me/ssqwst" target="_blank" class="btn">
             💬 Написать в Telegram
         </a>
 
+        <!-- ===== ФУТЕР ===== -->
         <div class="footer-text">
             <span class="highlight">🤍 покажу примеры до оплаты</span>
             <br>
-            предоплата 50% · правки бесплатно
+            предоплата 50% · правки бесплатно · от 1 дня
         </div>
+
     </div>
 
 </body>
