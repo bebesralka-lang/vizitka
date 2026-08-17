@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQST | Love Stories — сайты для пар</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>SQST | Сайты для пар</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ---------- БАЗА (из Love Stories) ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -14,747 +13,558 @@
         }
 
         :root {
-            --primary: #2c3e50;
-            --accent: #e74c6f;
-            --bg-light: #fdf8fa;
+            --bg-dark: #1a1a1e;
+            --bg-card: #25252b;
+            --bg-card-hover: #2e2e36;
+            --text-primary: #f0ece6;
+            --text-secondary: #b8b0a6;
             --gold: #c9a96e;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --gold-light: #e8d5a3;
+            --gold-dim: rgba(201, 169, 110, 0.15);
+            --border-gold: rgba(201, 169, 110, 0.2);
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--primary);
+            background: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* ===== ОСНОВНАЯ КАРТОЧКА (все блоки слева) ===== */
+        .main-card {
+            max-width: 780px;
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 30px 35px 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ---------- ШАПКА ---------- */
-        .header {
-            padding: 30px 0 10px;
-            text-align: center;
+        /* Декоративный золотой акцент сверху */
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            opacity: 0.6;
         }
 
-        .logo {
+        /* ===== ВСЕ БЛОКИ СЛЕВА ===== */
+        .block {
+            text-align: left;
+            margin-bottom: 22px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header-block .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            color: var(--text-primary);
         }
-        .logo span {
-            color: var(--accent);
+        .header-block .logo .gold {
+            color: var(--gold);
         }
-        .logo small {
+        .header-block .logo small {
             display: block;
-            font-size: 0.8rem;
             font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
             font-weight: 300;
             letter-spacing: 4px;
-            color: #7f8c8d;
-            margin-top: -5px;
+            color: var(--text-secondary);
+            margin-top: -4px;
         }
 
-        /* ---------- ГЕРОЙ ---------- */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            padding: 50px 0 60px;
-            flex-wrap: wrap;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .hero-text .tag {
+        /* ===== ТЕГ ===== */
+        .tag {
             display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.7rem;
+            background: var(--gold-dim);
+            color: var(--gold-light);
+            font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 6px 18px;
+            padding: 4px 16px;
             border-radius: 30px;
-            margin-bottom: 15px;
+            border: 1px solid var(--border-gold);
+            margin-bottom: 10px;
         }
 
-        .hero-text h1 {
+        /* ===== ЗАГОЛОВКИ ===== */
+        h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: 2.6rem;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 8px;
         }
-        .hero-text h1 i {
-            color: var(--accent);
-            font-style: normal;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #4a5c6b;
-            margin-bottom: 30px;
-            max-width: 500px;
+        h1 .gold {
+            color: var(--gold);
         }
 
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            max-width: 90%;
+        }
+
+        /* ===== КНОПКИ ===== */
         .btn {
             display: inline-block;
-            padding: 14px 40px;
-            background: var(--accent);
-            color: #fff;
+            padding: 12px 32px;
+            background: var(--gold);
+            color: #1a1a1e;
             border: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            box-shadow: 0 10px 20px rgba(231, 76, 111, 0.3);
+            font-family: 'Inter', sans-serif;
         }
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(231, 76, 111, 0.4);
-            background: #d43f5e;
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.25);
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            box-shadow: none;
-            margin-left: 15px;
+            border: 1.5px solid var(--border-gold);
+            color: var(--text-primary);
+            margin-left: 12px;
         }
         .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
+            background: rgba(201, 169, 110, 0.08);
+            border-color: var(--gold);
+            box-shadow: none;
         }
 
-        .hero-image {
-            flex: 1;
-            min-width: 280px;
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.75rem;
+        }
+
+        .btn-group {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
         }
 
-        .hero-image .placeholder {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 1 / 1.2;
-            background: linear-gradient(145deg, #f0e6ea, #e8dbdf);
-            border-radius: 30px 30px 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--accent);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
+        /* ===== ОПИСАНИЕ ===== */
+        .description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 90%;
+            line-height: 1.7;
         }
 
-        .placeholder .heart-deco {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            font-size: 2.5rem;
-            opacity: 0.3;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-            100% { transform: scale(1); opacity: 0.3; }
-        }
-
-        /* ---------- СЕКЦИЯ "ОБО МНЕ" ---------- */
-        .about {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        .about h2:after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--gold);
-            margin: 10px auto 0;
-        }
-
-        .about p {
-            max-width: 700px;
-            margin: 25px auto 0;
-            font-size: 1.1rem;
-            color: #3d4f5e;
-        }
-
-        /* ---------- СЛАЙДЕР (Портфолио) ---------- */
-        .portfolio {
-            padding: 40px 0 70px;
-        }
-
-        .portfolio h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .slider-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 25px;
-            box-shadow: var(--shadow);
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .slide {
-            min-width: 100%;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 30px;
-            min-height: 350px;
-            justify-content: center;
-        }
-
-        .slide .emoji-big {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-        .slide h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        .slide p {
-            color: #5d6f7e;
-            text-align: center;
-            max-width: 500px;
-            font-size: 1rem;
-        }
-        .slide .badge {
-            margin-top: 15px;
-            background: #ecf0f1;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s;
-            z-index: 10;
-            color: var(--primary);
-        }
-        .slider-btn:hover {
-            background: #fff;
-            transform: translateY(-50%) scale(1.05);
-        }
-        .slider-btn.prev {
-            left: 15px;
-        }
-        .slider-btn.next {
-            right: 15px;
-        }
-
-        .dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 25px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #d5dbe0;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .dot.active {
-            background: var(--accent);
-            width: 30px;
-            border-radius: 30px;
-        }
-
-        /* ---------- УСЛУГИ (из SQST) в сетке 2х2 ---------- */
-        .services {
-            padding: 60px 0 70px;
-            background: #fff;
-        }
-
-        .services h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .services h2:after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--gold);
-            margin: 10px auto 0;
-        }
-
-        .services-sub {
-            text-align: center;
-            color: #5d6f7e;
-            font-size: 1rem;
-            margin-bottom: 40px;
-        }
-
+        /* ===== СЕТКА УСЛУГ ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 10px;
+            margin-top: 4px;
         }
 
-        .service-card {
-            background: var(--bg-light);
-            border-radius: 20px;
-            padding: 24px 20px;
-            border: 1px solid #f0e6ea;
+        .service-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
             transition: 0.3s ease;
-            box-shadow: var(--shadow);
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--border-gold);
         }
-
-        .service-card .icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        .service-card h3 {
-            font-family: 'Playfair Display', serif;
+        .service-item .icon {
             font-size: 1.2rem;
-            margin-bottom: 6px;
-            color: var(--primary);
+            margin-right: 6px;
         }
-        .service-card p {
+        .service-item .name {
             font-size: 0.85rem;
-            color: #5d6f7e;
-            line-height: 1.5;
+            font-weight: 500;
+            color: var(--text-primary);
         }
-        .service-card .price-tag {
-            display: inline-block;
-            margin-top: 10px;
-            background: var(--accent);
-            color: #fff;
-            padding: 4px 16px;
-            border-radius: 30px;
+        .service-item .desc {
             font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        .service-item .price {
+            display: inline-block;
+            margin-top: 4px;
+            background: var(--gold-dim);
+            color: var(--gold-light);
+            padding: 1px 12px;
+            border-radius: 30px;
+            font-size: 0.6rem;
             font-weight: 600;
+            border: 1px solid var(--border-gold);
         }
 
-        /* ---------- ПРЕИМУЩЕСТВА (из SQST) ---------- */
-        .features-section {
-            padding: 50px 0 60px;
-            text-align: center;
-        }
-
-        .features-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
+        /* ===== ПРЕИМУЩЕСТВА ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 8px;
+            margin-top: 4px;
         }
 
         .feature-item {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px 15px;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 12px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: left;
             transition: 0.3s;
         }
         .feature-item:hover {
-            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
         }
         .feature-item .emoji {
-            font-size: 2.2rem;
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 4px;
         }
         .feature-item h4 {
-            font-size: 0.95rem;
-            margin: 6px 0 2px;
-            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         .feature-item p {
-            font-size: 0.75rem;
-            color: #7f8c8d;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
         }
 
-        /* ---------- ФУТЕР ---------- */
-        .footer {
-            text-align: center;
-            padding: 40px 0 30px;
-            border-top: 1px solid #e8e2e6;
-            margin-top: 20px;
+        /* ===== ПОРТФОЛИО (список, не слайдер) ===== */
+        .portfolio-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 4px;
         }
-        .footer .socials {
-            font-size: 1.8rem;
-            letter-spacing: 20px;
-            margin-bottom: 15px;
-        }
-        .footer .socials a {
-            text-decoration: none;
-            color: inherit;
+
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 14px;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: 0.3s;
         }
-        .footer .socials a:hover {
-            color: var(--accent);
+        .portfolio-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--border-gold);
         }
-        .footer p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
+        .portfolio-item .emoji-big {
+            font-size: 1.8rem;
+            flex-shrink: 0;
         }
-        .footer .gold {
+        .portfolio-item .info h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .portfolio-item .info p {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+        }
+        .portfolio-item .badge {
+            font-size: 0.55rem;
+            color: var(--gold-light);
+            background: var(--gold-dim);
+            padding: 1px 10px;
+            border-radius: 30px;
+            border: 1px solid var(--border-gold);
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer-block {
+            text-align: left;
+            padding-top: 4px;
+        }
+        .footer-block .socials {
+            font-size: 1.4rem;
+            letter-spacing: 14px;
+            margin-bottom: 6px;
+        }
+        .footer-block .socials a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+        .footer-block .socials a:hover {
             color: var(--gold);
         }
+        .footer-block p {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+        .footer-block .gold {
+            color: var(--gold);
+            opacity: 1;
+        }
 
-        /* ---------- АДАПТИВНОСТЬ ---------- */
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding-top: 20px;
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 650px) {
+            body {
+                padding: 12px 10px;
             }
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
+            .main-card {
+                padding: 20px 18px 18px;
+                border-radius: 18px;
             }
-            .hero-text h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2rem;
             }
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 10px;
+            .subtitle {
+                max-width: 100%;
+                font-size: 0.85rem;
             }
-            .slider-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+            .description {
+                max-width: 100%;
+                font-size: 0.85rem;
             }
-            .slide {
-                padding: 30px 20px;
-                min-height: 280px;
-            }
-            .hero-image .placeholder {
-                max-width: 280px;
-            }
-
             .services-grid {
                 grid-template-columns: 1fr;
             }
-
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
+            .portfolio-list {
+                grid-template-columns: 1fr;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-outline {
+                margin-left: 0;
+            }
+            .header-block .logo {
                 font-size: 1.8rem;
             }
-            .hero-text h1 {
-                font-size: 2rem;
+        }
+
+        @media (max-width: 400px) {
+            .main-card {
+                padding: 14px 12px 14px;
+            }
+            h1 {
+                font-size: 1.6rem;
             }
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+            .service-item {
+                padding: 10px 12px;
+            }
+            .portfolio-item {
+                padding: 10px 12px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== ШАПКА ===== -->
-    <header class="header container">
-        <div class="logo">SQST<span>❤️</span><small>сайты-свидания · дизайн · маркетинг</small></div>
-    </header>
+    <div class="main-card">
 
-    <!-- ===== ГЕРОЙ ===== -->
-    <section class="container hero">
-        <div class="hero-text">
-            <span class="tag">✨ Создаю сайты для пар</span>
-            <h1>Сохраняю ваши <i>чувства</i> <br>в цифре</h1>
-            <p>Сайт-свидание за 1 день. Фото, видео, таймер до встречи, письмо в будущее — подарок, который останется навсегда.</p>
-            <div>
-                <a href="#services" class="btn">Все услуги</a>
-                <a href="#" class="btn btn-outline">💬 Написать в чат</a>
+        <!-- ===== БЛОК 1: ШАПКА ===== -->
+        <div class="block header-block">
+            <div class="logo">
+                SQST<span class="gold">✦</span>
+                <small>сайты-свидания · дизайн · маркетинг</small>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="placeholder">
-                📸
-                <span class="heart-deco">❤️</span>
+
+        <!-- ===== БЛОК 2: ГЛАВНЫЙ ===== -->
+        <div class="block">
+            <span class="tag">✨ сайты для пар</span>
+            <h1>Сайт-свидание <br><span class="gold">за 1 день</span></h1>
+            <div class="subtitle">Подарок, который останется навсегда. Фото, видео, таймер, письмо, музыка — всё, чтобы удивить вторую половинку.</div>
+            <div class="btn-group">
+                <a href="#" class="btn">💬 Написать в чат</a>
+                <a href="#" class="btn btn-outline">📸 Посмотреть примеры</a>
             </div>
         </div>
-    </section>
 
-    <!-- ===== ОБО МНЕ ===== -->
-    <section class="about container">
-        <h2>Обо мне</h2>
-        <p>
-            Привет! Я создаю <strong>сайты-свидания</strong> — романтичные веб-страницы для пар.
-            Это может быть подарок на день рождения, годовщину или просто так.
-            Всё, что нужно для удивления второй половинки — я сделаю за 1 день.
-            А ещё я помогаю с дизайном, контентом и маркетингом. 
-            Работаю в лёгком, естественном стиле.
-        </p>
-    </section>
-
-    <!-- ===== ПОРТФОЛИО (Слайдер из Love Stories) ===== -->
-    <section class="portfolio container">
-        <h2>❤️ Примеры работ</h2>
-        <div class="slider-container">
-            <div class="slider-track" id="sliderTrack">
-                <div class="slide">
-                    <div class="emoji-big">🌅</div>
-                    <h3>Закатная Love Story</h3>
-                    <p>Сайт-свидание с таймером до встречи и вашей песней. Нежный розовый дизайн.</p>
-                    <span class="badge">📍 Для пары</span>
-                </div>
-                <div class="slide">
-                    <div class="emoji-big">🏛️</div>
-                    <h3>Свадебный сайт</h3>
-                    <p>Классический стиль, чёрно-белая плёнка, элегантные детали и история любви.</p>
-                    <span class="badge">📍 Для свадьбы</span>
-                </div>
-                <div class="slide">
-                    <div class="emoji-big">🏔️</div>
-                    <h3>Путешествие вдвоём</h3>
-                    <p>Репортажный стиль, живые эмоции, трекер дней и письмо в будущее.</p>
-                    <span class="badge">📍 Для путешественников</span>
-                </div>
-                <div class="slide">
-                    <div class="emoji-big">🌸</div>
-                    <h3>Весенний лав-стори</h3>
-                    <p>Цветущие сады, романтика и лёгкость. Идеально для помолвки.</p>
-                    <span class="badge">📍 Для помолвки</span>
-                </div>
+        <!-- ===== БЛОК 3: ОБО МНЕ ===== -->
+        <div class="block">
+            <span class="tag">💫 обо мне</span>
+            <div class="description">
+                Привет! Я создаю <strong style="color: var(--gold);">сайты-свидания</strong> — романтичные веб-страницы для пар. 
+                Это может быть подарок на день рождения, годовщину или просто так. 
+                Всё, что нужно для удивления — я сделаю за 1 день. 
+                А ещё я помогаю с <strong style="color: var(--gold);">дизайном</strong>, <strong style="color: var(--gold);">контентом</strong> и <strong style="color: var(--gold);">маркетингом</strong>.
+                <br><br>
+                🤍 <strong style="color: var(--gold);">Покажу до оплаты</strong> · правки <strong style="color: var(--gold);">бесплатно</strong>
             </div>
-            <button class="slider-btn prev" id="prevBtn">‹</button>
-            <button class="slider-btn next" id="nextBtn">›</button>
         </div>
-        <div class="dots" id="dotsContainer"></div>
-    </section>
 
-    <!-- ===== УСЛУГИ (из SQST) ===== -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2>💕 Что я делаю</h2>
-            <p class="services-sub">Всё, что связано с дизайном, сайтами и романтикой</p>
+        <!-- ===== БЛОК 4: УСЛУГИ ===== -->
+        <div class="block">
+            <span class="tag">💎 услуги</span>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">🎨</div>
-                    <h3>Дизайн</h3>
-                    <p>Логотипы, обложки для соцсетей, презентации, флаеры, визитки.</p>
-                    <span class="price-tag">от 500 ₽</span>
+                <div class="service-item">
+                    <span class="icon">🎨</span>
+                    <span class="name">Дизайн</span>
+                    <div class="desc">Логотипы, обложки, визитки</div>
+                    <span class="price">от 500 ₽</span>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🌐</div>
-                    <h3>Сайты-свидания</h3>
-                    <p>Персональный сайт для пары. Фото, видео, таймер, письмо, музыка.</p>
-                    <span class="price-tag">от 1500 ₽</span>
+                <div class="service-item">
+                    <span class="icon">🌐</span>
+                    <span class="name">Сайты-свидания</span>
+                    <div class="desc">Персональный сайт для пары</div>
+                    <span class="price">от 1500 ₽</span>
                 </div>
-                <div class="service-card">
-                    <div class="icon">📱</div>
-                    <h3>Контент для соцсетей</h3>
-                    <p>Оформление постов, сторис, шаблоны, карточки товаров.</p>
-                    <span class="price-tag">от 300 ₽</span>
+                <div class="service-item">
+                    <span class="icon">📱</span>
+                    <span class="name">Контент для соцсетей</span>
+                    <div class="desc">Посты, сторис, шаблоны</div>
+                    <span class="price">от 300 ₽</span>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🎬</div>
-                    <h3>Видео и анимация</h3>
-                    <p>Видео-визитки, анимированные открытки, рекламные ролики.</p>
-                    <span class="price-tag">от 700 ₽</span>
+                <div class="service-item">
+                    <span class="icon">🎬</span>
+                    <span class="name">Видео и анимация</span>
+                    <div class="desc">Визитки, открытки, ролики</div>
+                    <span class="price">от 700 ₽</span>
                 </div>
-                <div class="service-card">
-                    <div class="icon">📈</div>
-                    <h3>Маркетинг</h3>
-                    <p>Тексты, слоганы, упаковка бренда, брифы для клиентов.</p>
-                    <span class="price-tag">от 400 ₽</span>
+                <div class="service-item">
+                    <span class="icon">📈</span>
+                    <span class="name">Маркетинг</span>
+                    <div class="desc">Тексты, слоганы, упаковка</div>
+                    <span class="price">от 400 ₽</span>
                 </div>
-                <div class="service-card">
-                    <div class="icon">🧩</div>
-                    <h3>Шаблоны и сервисы</h3>
-                    <p>Готовые шаблоны сайтов, наборы для дизайна, мини-сервисы.</p>
-                    <span class="price-tag">от 200 ₽</span>
+                <div class="service-item">
+                    <span class="icon">🧩</span>
+                    <span class="name">Шаблоны и сервисы</span>
+                    <div class="desc">Готовые решения для бизнеса</div>
+                    <span class="price">от 200 ₽</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ===== ПРЕИМУЩЕСТВА (из SQST) ===== -->
-    <section class="features-section container">
-        <h2>✨ Почему выбирают меня</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="emoji">⚡</div>
-                <h4>За 1 день</h4>
-                <p>Сайт-свидание готов за 24 часа</p>
-            </div>
-            <div class="feature-item">
-                <div class="emoji">💕</div>
-                <h4>Покажу до оплаты</h4>
-                <p>Сначала макет — потом оплата</p>
-            </div>
-            <div class="feature-item">
-                <div class="emoji">🔄</div>
-                <h4>Правки бесплатно</h4>
-                <p>Довожу до идеала без доплат</p>
-            </div>
-            <div class="feature-item">
-                <div class="emoji">💬</div>
-                <h4>Всегда на связи</h4>
-                <p>Отвечаю быстро, помогаю с идеями</p>
-            </div>
-            <div class="feature-item">
-                <div class="emoji">🎁</div>
-                <h4>Сюрпризы для вас</h4>
-                <p>Чек-листы, идеи для свиданий</p>
-            </div>
-            <div class="feature-item">
-                <div class="emoji">🌍</div>
-                <h4>Работаю онлайн</h4>
-                <p>Из любой точки — для всех городов</p>
+        <!-- ===== БЛОК 5: ПРИМЕРЫ РАБОТ (портфолио) ===== -->
+        <div class="block">
+            <span class="tag">❤️ портфолио</span>
+            <div class="portfolio-list">
+                <div class="portfolio-item">
+                    <span class="emoji-big">🌅</span>
+                    <div class="info">
+                        <h4>Закатная Love Story</h4>
+                        <p>Сайт с таймером и песней</p>
+                        <span class="badge">для пары</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <span class="emoji-big">🏛️</span>
+                    <div class="info">
+                        <h4>Свадебный сайт</h4>
+                        <p>Классика, чёрно-белый стиль</p>
+                        <span class="badge">для свадьбы</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <span class="emoji-big">🏔️</span>
+                    <div class="info">
+                        <h4>Путешествие вдвоём</h4>
+                        <p>Трекер дней и письмо</p>
+                        <span class="badge">для пар</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <span class="emoji-big">🌸</span>
+                    <div class="info">
+                        <h4>Весенний лав-стори</h4>
+                        <p>Цветы, романтика, лёгкость</p>
+                        <span class="badge">для помолвки</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- ===== ФУТЕР ===== -->
-    <footer class="footer container">
-        <div class="socials">
-            <a href="#">📷</a>
-            <a href="#">📱</a>
-            <a href="#">💌</a>
-            <a href="#">🎵</a>
+        <!-- ===== БЛОК 6: ПРЕИМУЩЕСТВА ===== -->
+        <div class="block">
+            <span class="tag">⭐ почему я</span>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="emoji">⚡</span>
+                    <h4>За 1 день</h4>
+                    <p>Готово за 24 часа</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">💕</span>
+                    <h4>Покажу до оплаты</h4>
+                    <p>Сначала макет</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🔄</span>
+                    <h4>Правки бесплатно</h4>
+                    <p>Довожу до идеала</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">💬</span>
+                    <h4>Всегда на связи</h4>
+                    <p>Отвечаю быстро</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🎁</span>
+                    <h4>Сюрпризы для вас</h4>
+                    <p>Идеи для свиданий</p>
+                </div>
+                <div class="feature-item">
+                    <span class="emoji">🌍</span>
+                    <h4>Работаю онлайн</h4>
+                    <p>Из любой точки</p>
+                </div>
+            </div>
         </div>
-        <p>© 2026 <span class="gold">SQST</span> · Сайты-свидания для влюблённых</p>
-        <p style="font-size: 0.7rem; color: #b0a8a8; margin-top: 4px;">🤍 Напишите в чат — я покажу примеры и расскажу подробнее</p>
-    </footer>
 
-    <!-- ===== СКРИПТ СЛАЙДЕРА (из Love Stories) ===== -->
-    <script>
-        (function() {
-            const track = document.getElementById('sliderTrack');
-            const slides = track.querySelectorAll('.slide');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const dotsContainer = document.getElementById('dotsContainer');
+        <!-- ===== БЛОК 7: ФУТЕР ===== -->
+        <div class="block footer-block">
+            <div class="socials">
+                <a href="#">📷</a>
+                <a href="#">📱</a>
+                <a href="#">💌</a>
+                <a href="#">🎵</a>
+            </div>
+            <p>© 2026 <span class="gold">SQST</span> · сайты-свидания для влюблённых</p>
+            <p style="font-size: 0.65rem; opacity: 0.4; margin-top: 2px;">Авито.Доставка · Ульяновск</p>
+        </div>
 
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('button');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.setAttribute('data-index', i);
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-
-            const dots = dotsContainer.querySelectorAll('.dot');
-
-            function goToSlide(index) {
-                if (index < 0) index = totalSlides - 1;
-                if (index >= totalSlides) index = 0;
-                currentIndex = index;
-                const offset = -currentIndex * 100;
-                track.style.transform = `translateX(${offset}%)`;
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentIndex);
-                });
-            }
-
-            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-            let autoplayInterval = setInterval(() => {
-                goToSlide(currentIndex + 1);
-            }, 5000);
-
-            const sliderContainer = document.querySelector('.slider-container');
-            sliderContainer.addEventListener('mouseenter', () => {
-                clearInterval(autoplayInterval);
-            });
-            sliderContainer.addEventListener('mouseleave', () => {
-                autoplayInterval = setInterval(() => {
-                    goToSlide(currentIndex + 1);
-                }, 5000);
-            });
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            sliderContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            sliderContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        goToSlide(currentIndex + 1);
-                    } else {
-                        goToSlide(currentIndex - 1);
-                    }
-                }
-            }, { passive: true });
-
-            goToSlide(0);
-        })();
-    </script>
+    </div>
 
 </body>
 </html>
