@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQST — визитка для Авито</title>
+    <title>SQST — наши услуги</title>
     <style>
         * {
             margin: 0;
@@ -14,14 +14,16 @@
         body {
             min-height: 100vh;
             font-family: 'Georgia', 'Segoe UI', cursive;
+            padding: 30px 20px;
+            position: relative;
+            background: #f5f0eb;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
-            position: relative;
-            background: #4c4444;
+            flex-direction: column;
         }
 
+        /* ===== ФОНОВОЕ ФОТО ===== */
         body::before {
             content: '';
             position: fixed;
@@ -33,413 +35,173 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            filter: brightness(0.35) blur(2px);
+            filter: brightness(0.7) blur(1px);
             z-index: 0;
         }
 
-        .square {
-            max-width: 700px;
+        /* ===== ЗАГОЛОВОК ===== */
+        .header {
+            max-width: 1100px;
             width: 100%;
-            aspect-ratio: 1 / 1;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            letter-spacing: 2px;
+        }
+        .header p {
+            font-size: 1.1rem;
+            color: #f0ecec;
+            opacity: 0.7;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* ===== СЕТКА ===== */
+        .grid {
+            max-width: 1100px;
+            width: 100%;
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 12px;
-            background: rgba(0,0,0,0.15);
-            backdrop-filter: blur(2px);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 10px;
         }
 
-        /* ===== ЛЕВЫЙ БЛОК (ОСТРЫЕ УГЛЫ) ===== */
-        .left-block {
-            background: rgba(108, 100, 108, 0.75);
-            backdrop-filter: blur(14px);
-            padding: 18px 14px 20px;
-            border: 2px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        /* ===== БЛОКИ ===== */
+        .block {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            padding: 24px 18px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
             text-align: center;
+            color: #2a1a2a;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: 0.3s;
-        }
-
-        /* ===== ПРАВЫЙ БЛОК (ОСТРЫЕ УГЛЫ) ===== */
-        .right-block {
-            background: rgba(108, 100, 108, 0.75);
-            backdrop-filter: blur(14px);
-            padding: 14px 12px 16px;
-            border: 2px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 6px;
-            overflow: hidden;
-            transition: 0.3s;
+            min-height: 200px;
+        }
+        .block:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
         }
 
-        /* ===== ЛЕВЫЙ БЛОК — СОДЕРЖАНИЕ ===== */
-        .logo {
-            font-size: 1.8rem;
+        .block .icon {
+            font-size: 2.8rem;
+            margin-bottom: 4px;
+        }
+        .block .title {
+            font-size: 1.1rem;
             font-weight: bold;
             color: #fff;
-            text-shadow: 0 0 20px rgba(0,0,0,0.3);
-            letter-spacing: 4px;
-            line-height: 1.1;
-        }
-        .logo small {
-            display: block;
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            opacity: 0.7;
-            margin-top: 2px;
-            font-weight: normal;
-            color: #e0d6d6;
-        }
-
-        .tagline {
-            background: rgba(255,215,0,0.06);
-            border: 1px solid rgba(255,215,0,0.06);
-            padding: 4px 12px;
-            display: inline-block;
-            margin: 4px auto 6px;
-            color: #f5d76e;
-            font-size: 0.6rem;
             letter-spacing: 1px;
         }
-
-        .main-title {
-            font-size: 1.2rem;
-            color: #fff;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-        .main-title .gold {
-            color: #f5d76e;
-        }
-
-        .subtitle {
-            color: #d4c8c8;
-            font-size: 0.6rem;
-            margin: 3px 0 6px;
-            font-style: italic;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px;
-            margin: 4px 0 6px;
-            text-align: left;
-        }
-        .feature-item {
-            background: rgba(91, 91, 90, 0.25);
-            padding: 5px 8px;
-            border: 1px solid rgba(255,255,255,0.02);
-            color: #d4c8c8;
-            font-size: 0.55rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: 0.3s;
-        }
-        .feature-item .emoji {
-            font-size: 0.8rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #f5d76e;
-            color: #1a1a1a;
-            padding: 8px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.75rem;
-            transition: 0.3s;
-            font-family: 'Georgia', serif;
-            margin-top: 3px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #e8c84e;
-            transform: scale(1.02);
-        }
-
-        .trust-text {
-            color: #d4c8c8;
-            font-size: 0.5rem;
-            margin-top: 4px;
+        .block .desc {
+            font-size: 0.85rem;
+            color: #f0ecec;
             opacity: 0.7;
-            line-height: 1.3;
-        }
-        .trust-text .highlight {
-            color: #f5d76e;
-        }
-
-        /* ===== ПРАВЫЙ БЛОК — СОДЕРЖАНИЕ ===== */
-        .section-block {
-            background: rgba(91, 91, 90, 0.2);
-            backdrop-filter: blur(4px);
-            padding: 6px 10px 5px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            text-align: left;
-            transition: 0.3s ease;
-        }
-        .section-block:hover {
-            background: rgba(108, 108, 107, 0.3);
-        }
-
-        .section-title {
-            font-size: 0.6rem;
-            font-weight: bold;
-            color: #f5f0f0;
-            margin-bottom: 2px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            padding-bottom: 2px;
-        }
-
-        .section-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1px 0;
-            font-size: 0.45rem;
-            color: #d4c8c8;
-            border-bottom: 1px solid rgba(255,255,255,0.01);
-        }
-        .section-item:last-child {
-            border-bottom: none;
-        }
-        .section-item .label {
-            color: #e8e0e0;
-        }
-        .section-item .value {
-            color: #c4b4b4;
-            font-size: 0.4rem;
-            font-style: italic;
-        }
-
-        /* ===== ФУТЕР ===== */
-        .footer-text {
-            color: #d4c8c8;
-            font-size: 0.45rem;
-            text-align: center;
-            opacity: 0.5;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            padding-top: 6px;
-            grid-column: 1 / -1;
-            margin-top: -4px;
-        }
-        .footer-text .gold {
-            color: #f5d76e;
+            line-height: 1.5;
         }
 
         /* ===== АДАПТАЦИЯ ===== */
-        @media (max-width: 600px) {
-            .square {
-                max-width: 500px;
-                gap: 8px;
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
                 padding: 8px;
             }
-            .left-block {
-                padding: 12px 10px 14px;
-            }
-            .right-block {
-                padding: 10px 8px 12px;
-                gap: 4px;
-            }
-            .logo {
-                font-size: 1.4rem;
-            }
-            .main-title {
-                font-size: 1rem;
-            }
-            .btn {
-                padding: 6px 16px;
-                font-size: 0.65rem;
+            .header h1 {
+                font-size: 2rem;
             }
         }
-        @media (max-width: 450px) {
-            .square {
-                max-width: 400px;
-                gap: 6px;
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
                 padding: 6px;
             }
-            .left-block {
-                padding: 8px 6px 10px;
+            .block {
+                min-height: 140px;
+                padding: 18px 14px 20px;
             }
-            .right-block {
-                padding: 6px 5px 8px;
-                gap: 3px;
+            .header h1 {
+                font-size: 1.6rem;
             }
-            .logo {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-            }
-            .logo small {
-                font-size: 0.5rem;
-            }
-            .main-title {
-                font-size: 0.8rem;
-            }
-            .features {
-                gap: 2px;
-            }
-            .feature-item {
-                font-size: 0.45rem;
-                padding: 3px 5px;
-            }
-            .feature-item .emoji {
-                font-size: 0.6rem;
-            }
-            .btn {
-                padding: 5px 12px;
-                font-size: 0.55rem;
-            }
-            .section-block {
-                padding: 4px 6px 3px;
-            }
-            .section-title {
-                font-size: 0.5rem;
-            }
-            .section-item {
-                font-size: 0.4rem;
-            }
-            .section-item .value {
-                font-size: 0.35rem;
-            }
-            .trust-text {
-                font-size: 0.4rem;
-            }
-            .tagline {
-                font-size: 0.5rem;
-                padding: 2px 8px;
-            }
-            .subtitle {
-                font-size: 0.5rem;
-            }
-            .footer-text {
-                font-size: 0.4rem;
-                padding-top: 4px;
+            .header p {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="square">
+    <!-- ===== ЗАГОЛОВОК ===== -->
+    <div class="header">
+        <h1>✨ Наши услуги</h1>
+        <p>✦ создаём сайты с душой ✦</p>
+    </div>
 
-        <!-- ===== ЛЕВЫЙ БЛОК ===== -->
-        <div class="left-block">
+    <!-- ===== СЕТКА ===== -->
+    <div class="grid">
 
-            <div class="logo">
-                SQST
-                <small>сайты-свидания</small>
-            </div>
-
-            <div class="tagline">🔥 Удиви свою вторую половинку</div>
-
-            <div class="main-title">
-                Сайт-свидание за <span class="gold">1 день</span>
-            </div>
-            <div class="subtitle">
-                ✦ подарок навсегда ✦
-            </div>
-
-            <div class="features">
-                <div class="feature-item"><span class="emoji">📸</span> Фото и видео</div>
-                <div class="feature-item"><span class="emoji">🎵</span> Ваша песня</div>
-                <div class="feature-item"><span class="emoji">⏳</span> Таймер до встречи</div>
-                <div class="feature-item"><span class="emoji">💕</span> Счётчик дней</div>
-                <div class="feature-item"><span class="emoji">💌</span> Письмо в будущее</div>
-                <div class="feature-item"><span class="emoji">🎁</span> Сюрпризы для вас</div>
-            </div>
-
-            <a href="#" class="btn">💬 Написать в чат</a>
-
-            <div class="trust-text">
-                🤍 покажу <span class="highlight">до оплаты</span> · правки бесплатно
-            </div>
-
+        <div class="block">
+            <span class="icon">💕</span>
+            <span class="title">Сайт-свидание</span>
+            <span class="desc">История вашей любви в интернете</span>
         </div>
 
-        <!-- ===== ПРАВЫЙ БЛОК ===== -->
-        <div class="right-block">
-
-            <div class="section-block">
-                <div class="section-title">🎨 ДИЗАЙН</div>
-                <div class="section-item"><span class="label">Логотипы</span><span class="value">блог, магазин, кафе</span></div>
-                <div class="section-item"><span class="label">Обложки для соцсетей</span><span class="value">VK, Instagram</span></div>
-                <div class="section-item"><span class="label">Презентации</span><span class="value">стильные и продающие</span></div>
-                <div class="section-item"><span class="label">Флаеры / афиши</span><span class="value">для мероприятий</span></div>
-                <div class="section-item"><span class="label">Визитки</span><span class="value">цифровые или для печати</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">📱 КОНТЕНТ ДЛЯ СОЦСЕТЕЙ</div>
-                <div class="section-item"><span class="label">Оформление постов</span><span class="value">Instagram, VK</span></div>
-                <div class="section-item"><span class="label">Сторис</span><span class="value">дизайн для Stories</span></div>
-                <div class="section-item"><span class="label">Шаблоны для постов</span><span class="value">готовые наборы</span></div>
-                <div class="section-item"><span class="label">Карточки товаров</span><span class="value">для маркетплейсов</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">📈 МАРКЕТИНГ</div>
-                <div class="section-item"><span class="label">Текст для сайтов</span><span class="value">продающие и живые</span></div>
-                <div class="section-item"><span class="label">Слоганы / нейминг</span><span class="value">название для проекта</span></div>
-                <div class="section-item"><span class="label">Упаковка бренда</span><span class="value">аватар, описание, визитка</span></div>
-                <div class="section-item"><span class="label">Брифы для клиентов</span><span class="value">помогу сформулировать</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">🎬 ВИДЕО И АНИМАЦИЯ</div>
-                <div class="section-item"><span class="label">Видео-визитки</span><span class="value">15–30 секунд</span></div>
-                <div class="section-item"><span class="label">Анимированные открытки</span><span class="value">с сердечками и музыкой</span></div>
-                <div class="section-item"><span class="label">Рекламные ролики</span><span class="value">для соцсетей</span></div>
-                <div class="section-item"><span class="label">Поздравления</span><span class="value">день рождения, годовщина</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">🚀 ЗАПУСК ПРОЕКТОВ</div>
-                <div class="section-item"><span class="label">Консультации</span><span class="value">какой сайт нужен</span></div>
-                <div class="section-item"><span class="label">Сбор идей</span><span class="value">концепция под ключ</span></div>
-                <div class="section-item"><span class="label">Настройка соцсетей</span><span class="value">оформление профиля</span></div>
-                <div class="section-item"><span class="label">Помощь с контентом</span><span class="value">текст, фото, идеи</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">📚 ОБУЧЕНИЕ</div>
-                <div class="section-item"><span class="label">Уроки по созданию сайтов</span><span class="value">индивидуально</span></div>
-                <div class="section-item"><span class="label">Гайды / инструкции</span><span class="value">PDF с уроками</span></div>
-                <div class="section-item"><span class="label">Доступ по подписке</span><span class="value">закрытый контент</span></div>
-            </div>
-
-            <div class="section-block">
-                <div class="section-title">🧩 ШАБЛОНЫ И СЕРВИСЫ</div>
-                <div class="section-item"><span class="label">Готовые шаблоны сайтов</span><span class="value">5–10 вариантов</span></div>
-                <div class="section-item"><span class="label">Наборы для дизайна</span><span class="value">фоны, иконки, шрифты</span></div>
-                <div class="section-item"><span class="label">Мини-сервисы</span><span class="value">QR-коды, открытки</span></div>
-            </div>
-
-            <div class="section-block" style="border: 1px solid rgba(255,215,0,0.04);">
-                <div class="section-title">💕 ДЛЯ ЛЮБВИ</div>
-                <div class="section-item"><span class="label">Организация свиданий</span><span class="value">сайт + идея + сценарий</span></div>
-                <div class="section-item"><span class="label">Романтичные подарки</span><span class="value">сайт + видео + письмо</span></div>
-                <div class="section-item"><span class="label">Чек-листы для пар</span><span class="value">50 идей для свиданий</span></div>
-                <div class="section-item"><span class="label">Консультации</span><span class="value">индивидуальный сценарий</span></div>
-            </div>
-
+        <div class="block">
+            <span class="icon">📸</span>
+            <span class="title">Портфолио</span>
+            <span class="desc">Ваши работы в красивом оформлении</span>
         </div>
 
-        <!-- ===== ФУТЕР ===== -->
-        <div class="footer-text">
-            <span class="gold">🤍</span> Напишите в чат — я покажу примеры и расскажу подробнее <span class="gold">🤍</span>
-            <br>
-            <span style="font-size:0.4rem; opacity:0.4;">Авито.Доставка · Ульяновск</span>
+        <div class="block">
+            <span class="icon">🎵</span>
+            <span class="title">Музыкальный сайт</span>
+            <span class="desc">Плейлист и атмосфера на странице</span>
+        </div>
+
+        <div class="block">
+            <span class="icon">📍</span>
+            <span class="title">Сайт с картой</span>
+            <span class="desc">Ваши места на интерактивной карте</span>
+        </div>
+
+        <div class="block">
+            <span class="icon">💌</span>
+            <span class="title">Письмо в будущее</span>
+            <span class="desc">Откроется в нужный день</span>
+        </div>
+
+        <div class="block">
+            <span class="icon">🎨</span>
+            <span class="title">Дизайн</span>
+            <span class="desc">Логотипы, обложки, визитки</span>
+        </div>
+
+        <div class="block">
+            <span class="icon">🧠</span>
+            <span class="title">Консультации</span>
+            <span class="desc">Помогу с идеей и упаковкой</span>
+        </div>
+
+        <div class="block">
+            <span class="icon">🎁</span>
+            <span class="title">Готовые шаблоны</span>
+            <span class="desc">Быстрый старт для вашего проекта</span>
         </div>
 
     </div>
