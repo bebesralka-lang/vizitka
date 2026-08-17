@@ -33,17 +33,14 @@
             min-height: 100vh;
             padding: 30px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
 
-            /* ===== ОСНОВНОЙ ФОН ===== */
             background-image: url('eeee.avif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-
-            /* Затемнение для читаемости */
             position: relative;
         }
 
@@ -72,6 +69,7 @@
             position: relative;
             z-index: 1;
             overflow: hidden;
+            margin-left: 0;
         }
 
         /* Декоративный золотой акцент сверху */
@@ -187,11 +185,6 @@
             box-shadow: none;
         }
 
-        .btn-sm {
-            padding: 8px 20px;
-            font-size: 0.75rem;
-        }
-
         .btn-group {
             display: flex;
             flex-wrap: wrap;
@@ -205,6 +198,9 @@
             font-size: 0.95rem;
             max-width: 90%;
             line-height: 1.7;
+        }
+        .description .gold {
+            color: var(--gold);
         }
 
         /* ===== СЕТКА УСЛУГ ===== */
@@ -338,19 +334,6 @@
             text-align: left;
             padding-top: 4px;
         }
-        .footer-block .socials {
-            font-size: 1.4rem;
-            letter-spacing: 14px;
-            margin-bottom: 6px;
-        }
-        .footer-block .socials a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: 0.3s;
-        }
-        .footer-block .socials a:hover {
-            color: var(--gold);
-        }
         .footer-block p {
             color: var(--text-secondary);
             font-size: 0.75rem;
@@ -365,10 +348,12 @@
         @media (max-width: 650px) {
             body {
                 padding: 12px 10px;
+                justify-content: center;
             }
             .main-card {
                 padding: 20px 18px 18px;
                 border-radius: 18px;
+                margin-left: 0;
             }
             h1 {
                 font-size: 2rem;
@@ -444,16 +429,15 @@
             </div>
         </div>
 
-        <!-- ===== БЛОК 3: ОБО МНЕ ===== -->
+        <!-- ===== БЛОК 3: ОБО МНЕ (НОВЫЙ ТЕКСТ) ===== -->
         <div class="block">
             <span class="tag">💫 обо мне</span>
             <div class="description">
-                Привет! Я создаю <strong style="color: var(--gold);">сайты-свидания</strong> — романтичные веб-страницы для пар. 
-                Это может быть подарок на день рождения, годовщину или просто так. 
-                Всё, что нужно для удивления — я сделаю за 1 день. 
-                А ещё я помогаю с <strong style="color: var(--gold);">дизайном</strong>, <strong style="color: var(--gold);">контентом</strong> и <strong style="color: var(--gold);">маркетингом</strong>.
+                Я делаю <span class="gold">сайты-свидания</span> для тех, кто хочет подарить не вещь, а эмоцию.
                 <br><br>
-                🤍 <strong style="color: var(--gold);">Покажу до оплаты</strong> · правки <strong style="color: var(--gold);">бесплатно</strong>
+                Сайт открывается по ссылке с телефона — ничего не надо скачивать. Если хочешь сделать сюрприз, который запомнится надолго — пиши.
+                <br><br>
+                Без давления, без уговоров — просто помогу <span class="gold">🤍</span>
             </div>
         </div>
 
@@ -578,12 +562,6 @@
 
         <!-- ===== БЛОК 7: ФУТЕР ===== -->
         <div class="block footer-block">
-            <div class="socials">
-                <a href="#">📷</a>
-                <a href="#">📱</a>
-                <a href="#">💌</a>
-                <a href="#">🎵</a>
-            </div>
             <p>© 2026 <span class="gold">SQST</span> · сайты-свидания для влюблённых</p>
             <p style="font-size: 0.65rem; opacity: 0.4; margin-top: 2px;">Авито.Доставка · Ульяновск</p>
         </div>
