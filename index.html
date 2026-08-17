@@ -3,208 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQST — наши услуги</title>
+    <title>Love Stories | Портфолио для влюбленных</title>
+    <!-- Подключаем красивые шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* ---------- Базовые сбросы и цвета ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #2c3e50;       /* Темно-синий для текста */
+            --accent: #e74c6f;        /* Розовый акцент (сердце, кнопки) */
+            --bg-light: #fdf8fa;      /* Очень нежный фон */
+            --gold: #c9a96e;          /* Золотой для деталей */
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
         body {
-            min-height: 100vh;
-            font-family: 'Georgia', 'Segoe UI', cursive;
-            padding: 30px 20px;
-            position: relative;
-            background: #f5f0eb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* ===== ФОНОВОЕ ФОТО ===== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.7) blur(1px);
-            z-index: 0;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* ===== ЗАГОЛОВОК ===== */
+        /* ---------- Шапка ---------- */
         .header {
-            max-width: 1100px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
+            padding: 30px 0 10px;
             text-align: center;
-            margin-bottom: 25px;
         }
-        .header h1 {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
             letter-spacing: 2px;
         }
-        .header p {
+        .logo span {
+            color: var(--accent);
+        }
+        .logo-sub {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #7f8c8d;
+            margin-top: -5px;
+        }
+
+        /* ---------- Герой (Главный блок) ---------- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 50px 0 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text h1 i {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        .hero-text p {
             font-size: 1.1rem;
-            color: #f0ecec;
-            opacity: 0.7;
-            margin-top: 6px;
-            font-style: italic;
+            color: #4a5c6b;
+            margin-bottom: 30px;
+            max-width: 500px;
         }
 
-        /* ===== СЕТКА ===== */
-        .grid {
-            max-width: 1100px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 10px;
-        }
-
-        /* ===== БЛОКИ ===== */
-        .block {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(12px);
-            padding: 24px 18px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(231, 76, 111, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(231, 76, 111, 0.4);
+            background: #d43f5e;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+            margin-left: 15px;
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image .placeholder {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1 / 1.2;
+            background: linear-gradient(145deg, #f0e6ea, #e8dbdf);
+            border-radius: 30px 30px 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--accent);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Декоративное сердечко на картинке */
+        .placeholder .heart-deco {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+
+        /* ---------- Секция "Обо мне" ---------- */
+        .about {
+            padding: 60px 0;
             text-align: center;
-            color: #2a1a2a;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .about h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 0;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 25px auto 0;
+            font-size: 1.1rem;
+            color: #3d4f5e;
+        }
+
+        /* ---------- Слайдер (Портфолио) ---------- */
+        .portfolio {
+            padding: 40px 0 70px;
+        }
+
+        .portfolio h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide {
+            min-width: 100%;
+            background: #fff;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 6px;
-            min-height: 200px;
-        }
-        .block:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+            padding: 40px 30px;
+            min-height: 350px;
+            justify-content: center;
         }
 
-        .block .icon {
-            font-size: 2.8rem;
-            margin-bottom: 4px;
+        .slide .emoji-big {
+            font-size: 4rem;
+            margin-bottom: 15px;
         }
-        .block .title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #fff;
-            letter-spacing: 1px;
+        .slide h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
-        .block .desc {
-            font-size: 0.85rem;
-            color: #f0ecec;
-            opacity: 0.7;
-            line-height: 1.5;
+        .slide p {
+            color: #5d6f7e;
+            text-align: center;
+            max-width: 500px;
+            font-size: 1rem;
+        }
+        .slide .badge {
+            margin-top: 15px;
+            background: #ecf0f1;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #2c3e50;
+            font-weight: 600;
         }
 
-        /* ===== АДАПТАЦИЯ ===== */
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-                padding: 8px;
+        /* Кнопки навигации слайдера */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+            z-index: 10;
+            color: var(--primary);
+        }
+        .slider-btn:hover {
+            background: #fff;
+            transform: translateY(-50%) scale(1.05);
+        }
+        .slider-btn.prev {
+            left: 15px;
+        }
+        .slider-btn.next {
+            right: 15px;
+        }
+
+        /* Точки (индикаторы) под слайдером */
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d5dbe0;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .dot.active {
+            background: var(--accent);
+            width: 30px;
+            border-radius: 30px;
+        }
+
+        /* ---------- Футер ---------- */
+        .footer {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-top: 1px solid #e8e2e6;
+            margin-top: 20px;
+        }
+        .footer .socials {
+            font-size: 1.8rem;
+            letter-spacing: 20px;
+            margin-bottom: 15px;
+        }
+        .footer p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Адаптивность (Телефоны) ---------- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 20px;
             }
-            .header h1 {
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            .slide {
+                padding: 30px 20px;
+                min-height: 280px;
+            }
+            .hero-image .placeholder {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            .hero-text h1 {
                 font-size: 2rem;
-            }
-        }
-        @media (max-width: 500px) {
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-                padding: 6px;
-            }
-            .block {
-                min-height: 140px;
-                padding: 18px 14px 20px;
-            }
-            .header h1 {
-                font-size: 1.6rem;
-            }
-            .header p {
-                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== ЗАГОЛОВОК ===== -->
-    <div class="header">
-        <h1>✨ Наши услуги</h1>
-        <p>✦ создаём сайты с душой ✦</p>
-    </div>
+    <!-- ШАПКА -->
+    <header class="header container">
+        <div class="logo">Love<span>Stories</span></div>
+        <div class="logo-sub">Фотограф для двоих</div>
+    </header>
 
-    <!-- ===== СЕТКА ===== -->
-    <div class="grid">
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="container hero">
+        <div class="hero-text">
+            <span class="tag">✨ Свадебный фотограф</span>
+            <h1>Сохраняю ваши <i>чувства</i> <br>в кадре</h1>
+            <p>Помогаю влюблённым выглядеть естественно и красиво. Более 50 пар уже доверили мне свой самый важный день.</p>
+            <div>
+                <a href="#" class="btn">Смотреть работы</a>
+                <a href="#" class="btn btn-outline">Связаться</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="placeholder">
+                📸
+                <span class="heart-deco">❤️</span>
+            </div>
+        </div>
+    </section>
 
-        <div class="block">
-            <span class="icon">💕</span>
-            <span class="title">Сайт-свидание</span>
-            <span class="desc">История вашей любви в интернете</span>
+    <!-- ОБО МНЕ -->
+    <section class="about container">
+        <h2>Обо мне</h2>
+        <p>
+            Привет! Меня зовут Анастасия. Я специализируюсь на съёмках пар и свадеб. 
+            Моя задача — не просто сделать красивое фото, а поймать ту самую искру, которая живёт между вами. 
+            Работаю в лёгком, естественном стиле.
+        </p>
+    </section>
+
+    <!-- ПОРТФОЛИО (Слайдер) -->
+    <section class="portfolio container">
+        <h2>❤️ Примеры работ</h2>
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <!-- Слайд 1 -->
+                <div class="slide">
+                    <div class="emoji-big">🌅</div>
+                    <h3>Закатная Love Story</h3>
+                    <p>Съёмка на закате в парке. Мягкий свет, нежные объятия и лёгкое платье.</p>
+                    <span class="badge">📍 Парк Горького</span>
+                </div>
+                <!-- Слайд 2 -->
+                <div class="slide">
+                    <div class="emoji-big">🏛️</div>
+                    <h3>Свадьба в классическом стиле</h3>
+                    <p>Торжественная церемония в усадьбе. Чёрно-белая плёнка и элегантные детали.</p>
+                    <span class="badge">📍 Усадьба Архангельское</span>
+                </div>
+                <!-- Слайд 3 -->
+                <div class="slide">
+                    <div class="emoji-big">🏔️</div>
+                    <h3>Путешествие вдвоём</h3>
+                    <p>Репортажная съёмка в горах. Живые эмоции, ветер в волосах и никакой постановки.</p>
+                    <span class="badge">📍 Алтай</span>
+                </div>
+                <!-- Слайд 4 (добавим еще один) -->
+                <div class="slide">
+                    <div class="emoji-big">🌸</div>
+                    <h3>Весенний лав-стори</h3>
+                    <p>Цветущие сады, пикник и лёгкая романтика. Идеально для помолвки.</p>
+                    <span class="badge">📍 Сад Эрмитаж</span>
+                </div>
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button class="slider-btn prev" id="prevBtn">‹</button>
+            <button class="slider-btn next" id="nextBtn">›</button>
         </div>
 
-        <div class="block">
-            <span class="icon">📸</span>
-            <span class="title">Портфолио</span>
-            <span class="desc">Ваши работы в красивом оформлении</span>
-        </div>
+        <!-- Точки (индикаторы) -->
+        <div class="dots" id="dotsContainer"></div>
+    </section>
 
-        <div class="block">
-            <span class="icon">🎵</span>
-            <span class="title">Музыкальный сайт</span>
-            <span class="desc">Плейлист и атмосфера на странице</span>
+    <!-- ФУТЕР -->
+    <footer class="footer container">
+        <div class="socials">
+            <a href="#" style="text-decoration: none; color: inherit;">📷</a>
+            <a href="#" style="text-decoration: none; color: inherit;">📱</a>
+            <a href="#" style="text-decoration: none; color: inherit;">💌</a>
         </div>
+        <p>© 2026 LoveStories. Сделано с душой для влюблённых.</p>
+    </footer>
 
-        <div class="block">
-            <span class="icon">📍</span>
-            <span class="title">Сайт с картой</span>
-            <span class="desc">Ваши места на интерактивной карте</span>
-        </div>
+    <!-- ---------- JAVASCRIPT (Логика слайдера) ---------- -->
+    <script>
+        (function() {
+            const track = document.getElementById('sliderTrack');
+            const slides = track.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('dotsContainer');
 
-        <div class="block">
-            <span class="icon">💌</span>
-            <span class="title">Письмо в будущее</span>
-            <span class="desc">Откроется в нужный день</span>
-        </div>
+            let currentIndex = 0;
+            const totalSlides = slides.length;
 
-        <div class="block">
-            <span class="icon">🎨</span>
-            <span class="title">Дизайн</span>
-            <span class="desc">Логотипы, обложки, визитки</span>
-        </div>
+            // 1. Создаём точки
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
 
-        <div class="block">
-            <span class="icon">🧠</span>
-            <span class="title">Консультации</span>
-            <span class="desc">Помогу с идеей и упаковкой</span>
-        </div>
+            const dots = dotsContainer.querySelectorAll('.dot');
 
-        <div class="block">
-            <span class="icon">🎁</span>
-            <span class="title">Готовые шаблоны</span>
-            <span class="desc">Быстрый старт для вашего проекта</span>
-        </div>
+            // 2. Функция переключения
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
 
-    </div>
+                // Сдвигаем трек
+                const offset = -currentIndex * 100;
+                track.style.transform = `translateX(${offset}%)`;
+
+                // Обновляем активную точку
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            // 3. Кнопки "Вперед/Назад"
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+            // 4. Автопрокрутка (каждые 5 секунд)
+            let autoplayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 5000);
+
+            // 5. Останавливаем автопрокрутку, если пользователь навёл мышку на слайдер
+            const sliderContainer = document.querySelector('.slider-container');
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoplayInterval);
+            });
+            sliderContainer.addEventListener('mouseleave', () => {
+                autoplayInterval = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 5000);
+            });
+
+            // 6. Для мобильных (touch события)
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            sliderContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            sliderContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) { // порог в 50px
+                    if (diff > 0) {
+                        goToSlide(currentIndex + 1);
+                    } else {
+                        goToSlide(currentIndex - 1);
+                    }
+                }
+            }, { passive: true });
+
+            // Инициализация
+            goToSlide(0);
+        })();
+    </script>
 
 </body>
 </html>
