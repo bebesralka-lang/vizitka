@@ -22,12 +22,12 @@
             --gold-light: #e8d5a3;
             --gold-dim: rgba(201, 169, 110, 0.15);
             --border-gold: rgba(201, 169, 110, 0.2);
-            --shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
         }
 
+        /* ===== ФОН ===== */
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
@@ -35,9 +35,32 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+
+            /* ===== ОСНОВНОЙ ФОН ===== */
+            background-image: url('eeee.avif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            /* Затемнение для читаемости */
+            position: relative;
         }
 
-        /* ===== ОСНОВНАЯ КАРТОЧКА (все блоки слева) ===== */
+        /* Затемнение поверх фона */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== ОСНОВНАЯ КАРТОЧКА ===== */
         .main-card {
             max-width: 780px;
             width: 100%;
@@ -47,6 +70,7 @@
             box-shadow: var(--shadow);
             border: 1px solid var(--border-gold);
             position: relative;
+            z-index: 1;
             overflow: hidden;
         }
 
@@ -263,7 +287,7 @@
             margin-top: 2px;
         }
 
-        /* ===== ПОРТФОЛИО (список, не слайдер) ===== */
+        /* ===== ПОРТФОЛИО (список) ===== */
         .portfolio-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -476,7 +500,7 @@
             </div>
         </div>
 
-        <!-- ===== БЛОК 5: ПРИМЕРЫ РАБОТ (портфолио) ===== -->
+        <!-- ===== БЛОК 5: ПРИМЕРЫ РАБОТ ===== -->
         <div class="block">
             <span class="tag">❤️ портфолио</span>
             <div class="portfolio-list">
